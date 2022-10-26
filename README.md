@@ -4,3 +4,4 @@ The application, withing the next few days will be undergoing radical new change
 
 Known issues:
 1) There is an issue with the indentation being messed up after writing to and already open file. This will be fixed in the coming days
+2) The UI feels a little old school but will be updated to have a more classy and modern look in the coming days
