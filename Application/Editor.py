@@ -17,12 +17,12 @@ class App(customtkinter.CTk):
         # The base menu bar
         self.base_menu = tkinter.Menu(self)
 
+        # File menu
         self.file_menu = tkinter.Menu(self.base_menu, tearoff=0)
-
         self.base_menu.add_cascade(menu=self.file_menu,
         label="File")
         self.file_menu.add_command(label="Open", command=self.open_file)
-        self.file_menu.add_command(label="Save")
+        self.file_menu.add_command(label="Save", command=self.save_to_file)
         self.file_menu.add_command(label="Exit", command=self.exit_app)
 
         self.config(menu=self.base_menu)
@@ -37,10 +37,14 @@ class App(customtkinter.CTk):
 
     def open_file(self):
         file = filedialog.askopenfilename(filetypes=[("All files", "*.*")])
-        self.window_title = file
-        source_file = open(file, 'r')
-        self.editing_area.delete('1.0', tkinter.END)
-        self.editing_area.insert('1.0', source_file.read())
+        #self.window_title = file
+        if not file == '':
+            source_file = open(file, 'r')
+            self.editing_area.delete('1.0', tkinter.END)
+            self.editing_area.insert('1.0', source_file.read())
+
+    def save_to_file(self):
+        pass
 
     def exit_app(self):
         sys.exit()
