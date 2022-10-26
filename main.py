@@ -1,8 +1,8 @@
-from Application.Editor import App
+from CreateProject.CreationWizard import CreateProjectWizard
 
 def main():
-    app = App()
-    app.run()
+    createProjectWizard = CreateProjectWizard()
+    createProjectWizard.run()
 
 if __name__ == "__main__":
     main()
