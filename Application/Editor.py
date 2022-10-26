@@ -30,21 +30,24 @@ class App(customtkinter.CTk):
         # The main editing area
         self.editing_area = tkinter.Text(master=self, width=1080,
         height=500)
+        self.editing_area.config(tabs=4)
         self.editing_area.pack()
 
     def run(self):
         self.mainloop()
 
     def open_file(self):
-        file = filedialog.askopenfilename(filetypes=[("All files", "*.*")])
+        self.file = filedialog.askopenfilename(filetypes=[("All files", "*.*")])
         #self.window_title = file
-        if not file == '':
-            source_file = open(file, 'r')
+        if not self.file == '':
+            source_file = open(self.file, 'r')
             self.editing_area.delete('1.0', tkinter.END)
             self.editing_area.insert('1.0', source_file.read())
 
     def save_to_file(self):
-        pass
+        source_file = open(self.file, 'w')
+        source_file.write('')
+        source_file.write(self.editing_area.get('1.0', tkinter.END))
 
     def exit_app(self):
         sys.exit()
