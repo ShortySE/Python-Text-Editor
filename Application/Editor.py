@@ -8,7 +8,7 @@ customtkinter.set_default_color_theme("blue")
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
-        self.window_title = "Editor"
+        self.window_title = "Unefix Editor"
         self.title(self.window_title)
         self.geometry("1080x720")
         self.create_widgets()
